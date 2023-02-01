@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <!--====== SWIPER CSS ========-->
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+
+        <!--====== BOX ICONS ========-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
+
+        <title>Finance Code</title>
+
+        <style>
+            /*--====== GOOGLE FONTS ========*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/*--====== VARIABLES CSS ========*/
+:root{
+  --header-height: 3rem;
+
+  /*--====== COLORS ========*/
+  --first-color: #3E0E12;
+  --first-color-dark: #2F0A0D;
+  --text-color: #524748;
+  --first-color-light: #7B6F71;
+  --first-color-lighten: #FBF9F9;
+
+  /*--====== FONT AND TY`PGRAPHY ========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --samll-font-size: .813rem;
+  --samller-font-size: .75rem;
+
+  /*--====== FONT WEIGHT ========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*--====== MARGENES ========*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+/*--====== Z INDEX ========*/ 
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --biggest-font-size: 4.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+
+
+}
+ /*--====== BASE ========*/   
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--first-color-lighten);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,h2,h3,ul,p{
+    margin: 0;
+
+}
+h2,h3{
+    font-weight: var(--font-semi-bold);
+
+}
+ul{
+    padding: 0;
+    list-style: none;
+ 
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/*--====== CLASS CSS ========*/
+
+.section{
+    padding: 4rem 0 2rem;
+}
+.section-title, .section-subtitle{
+    text-align: center;
+
+}
+.section-title{
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-3);
+}
+.section-subtitle{
+    display: block;
+    font-size: var(--samller-font-size);
+    font-weight: var(--font-semi-bold);
+}
+/*--====== LAYOUT ========*/
+.bd-container{
+    max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+}
+.bd-grid{
+    display: grid;
+    gap: 1.5rem;
+}
+.l-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: #000;
+}
+/*--====== NAV ========*/
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+@media screen and (max-width: 768px){
+    .nav__menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding-top: 1.5rem;
+        text-align: center;
+        background-color: #000;
+        transition: 1s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 1rem 1rem;
+    }
+}
+.nav__item{
+    margin-bottom: var(--mb-3);
+}
+.nav__link{
+    color: var(--first-color-lighten);
+    transition: 3s;
+}
+.nav__link:hover{
+    color: var(--first-color-light);
+}
+.nav__logo, .nav__toggle{
+    color: var(--first-color-lighten);
+}
+.nav__toggle{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+/*--====== SHOW MENU ========*/
+.show-menu{
+    top: var(--header-height);
+}
+
+
+/*--====== ACTIVE MENU ========*/
+.active-link {
+    position: relative;
+}
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -.7rem;
+    left: 0;
+    width: 65%;
+    height: 3px;
+    background-color: var(--first-color-light);
+}
+
+/*--====== CHANGE BACKGROUND HEADER =========*/
+.scroll-header {
+    background-color: var(--first-color-lighten);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+.scroll-header .nav__logo, .scroll-header .nav__toggle, .scroll-header .nav__link {
+    color: var(--first-color-dark);
+}
+.scroll-header .nav__menu {
+    background-color: var(--first-color-lighten);
+}
+
+/*--======= SCROLL TOP =========*/
+.scrolltop {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background: rgba(123, 111, 113, .7);
+    border-radius: .5rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    visibility: hidden; 
+}
+.scrolltop:hover {
+    background-color: var(--first-color);
+}
+.scrolltop__icon {
+    font-size: 2rem;
+    color: var(--first-color-lighten);
+}
+
+/*--======= SHOW SCROLL TOP =========*/
+.show-scroll {
+    visibility: visible;
+    bottom: 1.5rem;
+}
+
+/*--======= INICIO =========*/
+.inicio {
+    background-color: #000;
+    overflow: hidden;
+}
+.inicio__container {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    grid-template-rows: repeat(2, max-content);
+    align-content: space-around;
+    row-gap: 2rem;
+}
+.inicio__data {
+    border-left: 4px solid var(--first-color-lighten);
+    color: var(--first-color-lighten);
+    padding-left: 1.5rem;
+    z-index: var(--z-tooltip);
+}
+.inicio__name {
+    font-size: var(--biggest-font-size);
+}
+.inicio__greeting, .inicio__profession {
+    display: block;
+    font-weight: var(--font-bold);
+}
+.inicio__greeting {
+    font-size: .813rem;
+}
+.inicio__profession {
+    font-size: .938rem;
+    margin-bottom: var(--mb-3);
+}
+.inicio__video {
+
+    position: absolute;
+    right: 0;
+    bottom: 5rem;
+    
+}
+.inicio__video source {
+    width: 240px;
+
+}
+.inicio__social {
+    display: flex;
+    flex-direction: column;
+}
+.inicio__social-icon {
+    width: max-content;
+    font-size: 1.3rem;
+    margin-bottom: var(--mb-2);
+    color: var(--first-color-lighten);
+}
+.__social-icon:hover {
+    color: var(--first-color-light);
+}
+
+/*--======= BOTONES =========*/
+.button {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--first-color-lighten);
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+    transition: .3s;
+}
+.button:hover {
+    background-color: rgba(2,26,54,255);
+}
+.button-light {
+    background-color: rgba(2,26,54,255);
+    width: 6rem;
+    text-align: center;
+}
+.button-white {
+    background-color: var(--first-color-lighten);
+    color: var(--first-color-dark);
+    
+}
+.button-green {
+    background-color: rgba(120,176,39,255);
+    color: var(--first-color-lighten);
+    width: 6rem;
+    text-align: center;
+}
+.button-red {
+    background-color: rgba(222,89,89,255);
+    color: var(--first-color-lighten);
+    width: 6rem;
+    text-align: center;
+}
+.button-red:hover {
+    background-color: rgba(123, 111, 113, .7);
+}
+.button-green:hover {
+    background-color: rgba(123, 111, 113, .7);
+}
+.button-white:hover {
+    background-color: rgba(123, 111, 113, .7);
+}
+.button-light:hover {
+    background-color: rgba(123, 111, 113, .7);
+}
+.button-link {
+    background: none;
+    color: var(--first-color);
+    padding: 0;
+}
+.button-link:hover {
+    background: none;
+}
+
+/*--======= TECNOLOGIA ==========*/
+.tecnologia__data {
+    text-align: center;
+}
+.tecnologia__description span {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--first-color);
+}
+.tecnologia__number {
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    display: block;
+}
+.tecnologia__img {
+    justify-self: center;
+    width: 400px;
+    margin-top: 150px;
+    border-radius: .5rem;
+}
+
+/*--======= LIBRERIAS ========*/
+.librerias__container {
+    row-gap: 2.5rem;
+}
+.librerias__title {
+    font-size: var(--h3-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-2);
+    display: flex;
+    align-items: center;
+}
+.librerias__title-icon {
+    font-size: 1.5rem;
+    margin-right: var(--mb-1);
+}
+.librerias__box {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+.librerias__area {
+    font-size: var(--normal-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-1);
+    font-weight: var(--font-medium);
+}
+.librerias__icon, .librerias__work {
+    font-size: var(--smaller-font-size);
+    color: var(--first-color-light);
+}
+.librerias__work {
+    display: block;
+}
+
+/*--======= SERVICIOS ==========*/
+.servicios__data {
+    padding: 3rem 1rem;
+    background-color: #FFF;
+    border-radius: .5rem;
+    text-align: center;
+    transition: .4s;
+    box-shadow: 0 4px 6px rgba(174, 190, 205, .3);
+}
+.servicios__icon, .servicios__title {
+    margin-bottom: var(--mb-2);
+    color: var(--first-color);
+}
+.servicios__icon {
+    font-size: 3rem;
+}
+.servicios__title {
+    font-size: var(--h3-font-size);
+}
+.servicios__description {
+    margin-bottom: var(--mb-4);
+}
+.servicios__data:hover {
+    transform: translateY(-.5rem);
+    box-shadow: 0 6px 8px rgba(174, 190, 205, .4);
+}
+
+/*--========= CONTACTME ===========*/
+.contacto__container {
+    row-gap: 2.5rem;
+}
+.contacto__content {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.contacto__box {
+    background-color: #FFF;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(174, 190, 205, .3);
+}
+.contacto__icon, .contacto__title {
+    color: var(--first-color);
+}
+.contacto__icon {
+    font-size: 2rem;
+}
+.contacto__title {
+    font-size: var(--h3-font-size);
+    margin: var(--mb-1) 0;
+}
+.contacto__social {
+    color: var(--first-color-light);
+    font-size: 1.25rem;
+    margin: 0 var(--mb-1);
+}
+.contacto__box:hover {
+    box-shadow: 0 6px 8px rgba(174, 190, 205, .4);
+}
+.contacto__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+}
+.contacto__input, .contacto__button {
+    outline: none;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+.contacto__input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--first-color-light);
+    color: var(--first-color);
+    border-radius: .5rem;
+    margin-bottom: var(--mb-1);
+}
+.contacto::placeholder {
+    color: var(--first-color-light);
+    font-family: var(--body-font);
+    font-weight: var(--font-semi-bold);
+}
+.contacto__button {
+    cursor: pointer;
+    border: none;
+}
+
+/*--======== FOOTER ===========*/
+.footer {
+    background-color: var(--first-color-dark);
+    color: var(--first-color-lighten);
+    text-align: center;
+}
+.footer__container {
+    padding: 3rem 0;
+}
+.footer__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--mb-1);
+    font-weight: var(--font-semi-bold);
+}
+.footer__description {
+    margin-bottom: var(--mb-3);
+}
+.footer__link {
+    font-size: 1.4rem;
+    color: var(--first-color-lighten);
+    margin: 0 var(--mb-1);
+    transition: .3s;
+}
+.footer__link:hover {
+    color: var(--first-color-light);
+}
+.footer__copy {
+    font-size: var(--small-font-size);
+    color: var(--first-color-light);
+}
+
+/*--========= MEDIA QUERIES =========*/
+@media screen and (min-width: 576px) {
+    .inicio__img img {
+        width: 330px;
+    }
+    
+    .tecnologia__container,
+    .librerias__container,
+    .servicios__container,
+    .portfolio__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content__form {
+        width: 450px;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    .section {
+        padding-top: 6rem;
+    }
+    .section-title {
+        margin-bottom: var(--mb-5);
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__list {
+        display: flex;
+    }
+    .nav__item {
+        margin-left: var(--mb-5);
+        margin-bottom: 0;
+    }
+    .nav__toggle {
+        display: none;
+    }
+
+    .inicio__container {
+        height: 100vh;
+        grid-template-rows: max-content .5fr;
+        align-content: flex-end;
+    }
+    .inicio__greeting {
+        font-size: 1.25rem;
+    }
+    .inicio__profession {
+        font-size: 2rem;
+    }
+    .inicio__social {
+        flex-direction: row;
+        align-items: center;
+    }
+    .inicio__social-icon {
+        margin-right: var(--mb-4);
+        margin-bottom: 0;
+    }
+    .inicio__img img {
+        width: 440px;
+    }
+
+    .tecnologia__description {
+        text-align: initial;
+    }
+    .tecnologia__img {
+        width: 300px;
+    }
+    .librerias__box {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .servicios__container,
+    .portfolio__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project__container {
+        padding: 4.5rem 0;
+    }
+    .project__data {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .project__icon, .project__title, .project__description {
+        margin-bottom: 0;
+    }
+    .project__icon {
+        font-size: 6rem;
+    }
+    .project__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .bd-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .librerias__container {
+        column-gap: 6rem;
+    }
+}
+        </style>
+    </head>
+    <body>
+        <!--====== SCROLL TOP ========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class="bx bx-chevron-up scrolltop__icon"></i>
+        </a>
+
+        <!--====== HEADER ========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Finance Code</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#inicio" class="nav__link active-link">Inicio</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                        <li class="nav__item"><a href="#servicios" class="nav__link">Servicios</a></li>
+                        <li class="nav__item"><a href="#tecnologia" class="nav__link">Tecnología</a></li>
+                        <li class="nav__item"><a href="#contacto" class="nav__link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--======== Inicio ========-->
+            <section class="inicio" id="inicio">
+                <div class="inicio__container bd-container bd-grid">
+                    <div class="inicio__data">
+                        <span class="inicio__greeting">Tu portal de</span>
+                        <h1 class="inicio__name">Social Trading</h1>
+                        <span class="inicio__profession">Gestión de fondos algorítmico</span>
+                        <a href="https://www.darwinex.com/es/account/D.272711" class="button button-light inicio__button">Darwinex</a>
+                    </div>
+
+                    <div class="inicio__social">
+                        <a href="https://www.facebook.com/profile.php?id=100086205199195" class="inicio__social-icon" style="color: blue;"><i class='bx bxl-facebook-square'></i></a> 
+                        <a href="https://www.instagram.com/financecodes_/" class="inicio__social-icon" style="color: purple;"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://twitter.com/FinanceCodes" class="inicio__social-icon" style="color: cyan;"><i class='bx bxl-twitter'></i></a>
+                        <a href="https://github.com/FinanceCodes" class="inicio__social-icon"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.youtube.com/channel/UCZImx1A2L_wWWQAslUjwB5Q/" class="inicio__social-icon" style="color: red;"><i class='bx bxl-youtube' ></i></a>
+                        <a href="https://www.twitch.tv/finance_codes" class="inicio__social-icon" style="color: rgb(170, 53, 170);"><i class='bx bxl-twitch' ></i></a>
+                    </div>
+
+                    <div class="inicio__video">
+                        <video width="320" height="240" controls autoplay loop muted>
+                            <source src="video/Videointro.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+            <!--======== PORTFOLIO =======-->
+            <section class="portfolio section bd-container" id="portfolio">
+                <span class="section-subtitle">Portfolio Darwinex</span>
+                <h2 class="section-title">Portfolio</h2>
+                <a href="https://www.darwinex.com/account/D.283030?utm_source=WidgetStrategy&utm_medium=Referral&utm_campaign=WidgetChart&utm_content=FinanceCodes">
+                <img src="https://prodx-widgets.s3-eu-west-1.amazonaws.com/D.283030-widgets-account-chart-account-all-bg-dark-l-es.png" style="width: 1000px;" alt="D.283030"></a>
+            </section>
+
+            <!--========= SERVICIOS ==========-->
+            <section class="servicios section bd-container" id="servicios">
+                <span class="section-subtitle">¿Qué podemos ofrecerte?></span>
+                <h2 class="section-title">Servicios</h2>
+
+                <div class="servicios__container bd-grid">
+                    <div class="servicios__data">
+                        <i class='bx bx-line-chart-down servicios__icon'></i>
+                        <h3 class="servicios__title">Riesgo - 1%</h3>
+                        <p class="servicios__description">Objetivo inversión al 1% de riesgo.</p>
+                        <a href="https://github.com/FinanceCodes/Portfolio_de_riesgo/blob/main/Plantilla_Estadistica_invertir.ipynb" class="button">Saber más</a>
+                    </div>
+
+                    <div class="servicios__data">
+                        <i class='bx bxs-pie-chart-alt-2 servicios__icon'></i>
+                        <h3 class="servicios__title">Diversificación de cartera</h3>
+                        <p class="servicios__description">Ofrecemos distintos activos no correlacionados para una gestión eficaz.</p>
+                        <a href="https://github.com/FinanceCodes/Diversificacion_de_activos/blob/main/Diversificacion_activos.ipynb" class="button">Saber más</a>
+                    </div>
+
+                    <div class="servicios__data">
+                        <i class='bx bx-network-chart servicios__icon'></i>
+                        <h3 class="servicios__title">Redes neuronales</h3>
+                        <p class="servicios__description">Escogemos la mejor estrategia para invertir.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--========= TECNOLOGÍA =========-->
+            <section class="tecnologia section bd-container" id="tecnologia">
+                <h2 class="section-title">Tecnología</h2>
+
+                <div class="tecnologia__container bd-grid">
+                    <div class="tecnologia__data bd-grid">
+                        <p class="tecnologia__description"><span>Python <br></span>Python es la mejor herramienta de trabajo tecnológico creado actualmente, con sus distintas librerías puedes consultar y crear distintas composiciones de datos. Actualmente utilizo este lenguaje de programación en el mundo de las finanzas cuantitativas y predictivas.</p>
+
+                        <div>
+                            <span class="tecnologia__number">+10</span>
+                            <span class="tecnologia__achievement">Años de experiencia</span>
+                        </div>
+
+                        <div>
+                            <span class="tecnologia__number">+5</span>
+                            <span class="tecnologia__achievement">Proyectos completados</span>
+                        </div>
+
+                        <div>
+                            <span class="tecnologia__number">+3</span>
+                            <span class="tecnologia__achievement">Proyectos en curso</span>
+                        </div>
+                    </div>
+
+                    <img src="img/trading1.jpg" style="width: 600px;" alt="" class="tecnologia__img">
+                </div>
+            </section>
+
+            <!--========= LIBRERIAS =========-->
+            <section class="librerias section bd-container">
+                <h2 class="section-title">Librerias</h2>
+
+                <div class="librerias__container bd-grid">
+                    <div class="librerias__content">
+                        <h2 class="librerias__title">
+                            <i class='bx bx-data librerias__title-icon'></i>
+                            Datos
+                        </h2>
+
+                        <div class="bd-grid">
+                            <div class="librerias__data">
+                                <h3 class="librerias__area">Numpy</h3>
+
+                                <div class="librerias__box">
+                                    <span class="librerias__work">
+                                        <p>NumPy es una librería de Python especializada en el cálculo numérico y el análisis de datos, especialmente para un gran volumen de datos.</p>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="librerias__data">
+                                <h3 class="librerias__area">Pandas</h3>
+
+                                <div class="librerias__box">
+                                    <span class="librerias__work">
+                                        <p>Pandas es una muy popular librería de código abierto dentro de los desarrolladores de Python, y sobre todo dentro del ámbito de Data Science y Machine Learning, ya que ofrece unas estructuras muy poderosas y flexibles que facilitan la manipulación y tratamiento de datos.</p>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="librerias__data">
+                                <h3 class="librerias__area">TensorFlow</h3>
+
+                                <div class="librerias__box">
+                                    <span class="librerias__work">
+                                        <p>TensorFlow te permite construir y entrenar redes neuronales para detectar patrones y razonamientos usados por los humanos. Además de trabajar con redes neuronales, TensorFlow es multiplataforma. Trabaja con GPUs y CPUs e incluso con las unidades de procesamiento de tensores (TPUs).</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="librerias__content">
+                        <h2 class="librerias__title">
+                            <i class='bx bx-photo-album librerias__title-icon'></i>
+                            Gráficos
+                        </h2>
+
+                        <div class="bd-grid">
+                            <div class="librerias__data">
+                                <h3 class="librerias__area">Matplotlib</h3>
+
+                                <div class="librerias__box">
+                                    <span class="librerias__work">
+                                        <p>Matplotlib es una librería de Python especializada en la creación de gráficos en dos dimensiones. Permite crear y personalizar los tipos de gráficos más comunes, entre ellos: Diagramas de barras. Histograma.</p>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="librerias__data">
+                                <h3 class="librerias__area">Seaborn</h3>
+
+                                <div class="librerias__box">
+                                    <span class="librerias__work">
+                                        <p> El tipo de gráfico dependerá del tipo de variable que deseamos describir e incluso del número de variables que deseamos describir Como aproximación inicial describiremos variables cuantitativas o variables cualitativas análisis univariables o análisis bivariables.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--========= CONTACTO =========-->
+            <section class="contacto section bd-container" id="contacto">
+                <span class="section-subtitle">Para mas informacíon</span>
+                <h2 class="section-title">Contacto</h2>
+
+                <div class="contacto__container bd-grid">
+                    <div class="contacto__content bd-grid">
+                        <div class="contacto__box">
+                            <i class="bx bx-home contacto__icon"></i>
+                            <h3 class="contacto__title">Localización</h3>
+                            <span class="contacto__description">España</span>
+                        </div>
+
+                        <div class="contacto__box">
+                            <i class="bx bx-phone contacto__icon"></i>
+                            <h3 class="contacto__title">Telefono</h3>
+                            <span class="contacto__description">xxx-xxx-xxx</span>
+                        </div>
+
+                        <div class="contacto__box">
+                            <i class="bx bx-envelope contacto__icon"></i>
+                            <h3 class="contacto__title">Gmail</h3>
+                            <span class="contacto__description" style="margin-left: -17px;">financecodes91@gmail.com</span>
+                        </div>
+
+                        <div class="contacto__box">
+                            <i class="bx bx-chat contacto__icon"></i>
+                            <h3 class="contacto__title">Chat</h3>
+                            <div>
+                                <a href="#" class="contacto__social"><i class="bx bxl-whatsapp-square"></i></a>
+                                <a href="#" class="contacto__social"><i class="bx bxl-telegram"></i></a>
+                                <a href="#" class="contacto__social"><i class="bx bxl-messenger"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </section>
+        </main>
+        
+        <!--====== FOOTER ========-->
+        <footer class="footer">
+            <div class="footer__container bd-container">
+                <h1 class="footer__title">Finance Code</h1>
+                <p class="footer__description">Gracias por visitar mi página web</p>
+                <p class="footer__copy">&#169 Finance Code. Todos los derechos están reservados.</p>
+            </div>
+        </footer>
+
+        <!--====== MIXITUP FILTER =======-->
+        <script src="js/mixitup.min.js"></script>
+
+        <!--======= SWIPER JS =======-->
+        <script src="js/swiper-bundle.min.js"></script>
+
+        <!--====== GSAP =======-->
+        <script src="js/gsap.min.js"></script>
+
+        <script>
+            const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            nav.classList.toggle('show-menu')
+        })
+    }
+}
+
+showMenu('nav-toggle','nav-menu')
+
+/*--====== REMOVE MENU MOBILE ========*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction() {
+    const navMenu = document.getElementById('nav-menu')
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*--====== SCROLL SECTIONS ACTIVE LINK ========*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive() {
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+/*--====== CHANGE BACKGROUND HEADER ========*/
+function scrollHeader() {
+    const header = document.getElementById('header')
+    if(this.scrollY >= 200) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+
+/*--====== SHOW SCROLL TOP ========*/
+function scrollTop() {
+    const scrollTop = document.getElementById('scroll-top')
+    if(this.scrollY >= 560) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollTop)
+
+/*--====== MIXITUP FILTER PORTFOLIO ========*/
+const mixer = mixitup('.portfolio__container', {
+    selectors: {
+        target: '.portfolio__content'
+    },
+    animation: {
+        duration: 400
+    }
+});
+
+/*--====== LINK ACTIVE PORFOLIO ========*/
+const linkPortfolio = document.querySelectorAll('.portfolio__item')
+
+function activePortfolio() {
+    if(linkPortfolio) {
+        linkPortfolio.forEach(L => L.classList.remove('active-portfolio'))
+        this.classList.add('active-portfolio')
+    }
+}
+linkPortfolio.forEach(L => L.addEventListener('click', activePortfolio))
+
+/*--======= SWIPER CAROUSEL =======*/
+const mySwiper = new Swiper('.testimonial__container', {
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 0,
+        },
+        1024: {
+            slidesPerView: 3,
+        },
+    }
+})
+
+/*--======= GSAP ANIMATION ==========*/
+gsap.from('.home__img', {opacity: 0, duration: 2, delay: .5, x: 60})
+gsap.from('.home__data', {opacity: 0, duration: 2, delay: .8, y: 25})
+gsap.from('.home__greeting, .home__name, .home__profession, home__button', {opacity: 0, duration: 2, delay: 1, y: 25, ease: 'expo.out', stagger: .2})
+
+gsap.from('nav__logo, nav__toggle', {opacity: 0, duration: 2, delay: 1.5, y: 25, ease: 'expo.out', stagger: .2})
+gsap.from('nav__item', {opacity: 0, duration: 2, delay: 1.8, y: 25, ease: 'expo.out', stagger: .2})
+
+gsap.from('home__social-icon', {opacity: 0, duration: 2, delay: 2.3, y: 25, ease: 'expo.out', stagger: .2})
+        </script>
+    </body>
+</html>
